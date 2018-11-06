@@ -6,10 +6,11 @@ export default StyleSheet.create({
   },
 
   input: {
-    top: 2,
+    top: 8,
+    bottom: 8,
     padding: 0,
     margin: 0,
-    flex: 1,
+    flex: 1
   },
 
   row: {
