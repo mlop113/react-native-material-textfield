@@ -6,15 +6,17 @@ export default StyleSheet.create({
   },
 
   input: {
-    top: 8,
+    top: 5,
     bottom: 8,
     padding: 0,
     margin: 0,
+    height: 50,
     flex: 1
   },
 
   row: {
     flexDirection: 'row',
+    flex: 1
   },
 
   flex: {
