@@ -6,7 +6,7 @@ export default StyleSheet.create({
   },
 
   input: {
-    top: 5,
+    top: 3,
     bottom: 8,
     padding: 0,
     margin: 0,
