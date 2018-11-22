@@ -35,7 +35,7 @@ export default class TextField extends PureComponent {
     labelFontSize: 12,
     labelHeight: 32,
     labelPadding: 4,
-    inputContainerPadding: 8,
+    inputContainerPadding: 5,
 
     tintColor: 'rgb(0, 145, 234)',
     textColor: 'rgba(0, 0, 0, .87)',
@@ -44,11 +44,11 @@ export default class TextField extends PureComponent {
     errorColor: 'rgb(213, 0, 0)',
 
     lineWidth: StyleSheet.hairlineWidth,
-    activeLineWidth: 2,
+    activeLineWidth: 0,
 
     disabled: false,
     disabledLineType: 'dotted',
-    disabledLineWidth: 1,
+    disabledLineWidth: 0,
   };
 
   static propTypes = {
@@ -121,7 +121,7 @@ export default class TextField extends PureComponent {
       error: error,
       errored: !!error,
 
-      height: fontSize * 1.5,
+      height: fontSize * 1.8,
     };
   }
 
@@ -268,7 +268,7 @@ export default class TextField extends PureComponent {
 
     this.setState({
       height: Math.max(
-        fontSize * 1.5,
+        fontSize * 1.8,
         Math.ceil(height) + Platform.select({ ios: 5, android: 1 })
       ),
     });
@@ -398,7 +398,7 @@ export default class TextField extends PureComponent {
 
       ...(props.multiline?
         { height: 'web' === Platform.OS ? 'auto' : labelHeight + inputContainerPadding + height }:
-        { height: labelHeight + inputContainerPadding + fontSize * 1.5 }),
+        { height: labelHeight + inputContainerPadding + fontSize * 1.8 }),
     };
 
     let inputStyle = {
@@ -411,14 +411,14 @@ export default class TextField extends PureComponent {
 
       ...(props.multiline?
         {
-          height: fontSize * 1.5 + height,
+          height: fontSize * 1.8 + height,
 
           ...Platform.select({
             ios: { top: -1 },
             android: { textAlignVertical: 'top' },
           }),
         }:
-        { height: fontSize * 1.5 }),
+        { height: fontSize * 1.8 }),
     };
 
     let errorStyle = {
@@ -454,7 +454,7 @@ export default class TextField extends PureComponent {
         titleFontSize * 2:
         focus.interpolate({
           inputRange:  [-1, 0, 1],
-          outputRange: [titleFontSize * 2, 8, 8],
+          outputRange: [titleFontSize * 2, 5, 5],
         }),
     };
 
@@ -536,14 +536,15 @@ export default class TextField extends PureComponent {
             {this.renderAccessory()}
           </View>
         </Animated.View>
-{/*//         <Animated.View style={helperContainerStyle}>*/}
-{/*//           <View style={styles.flex}>*/}
-{/*//             <Helper style={[errorStyle, titleTextStyle]}>{error}</Helper>*/}
-{/*//             <Helper style={[titleStyle, titleTextStyle]}>{title}</Helper>*/}
-{/*//           </View>*/}
 
-{/*//           <Counter {...counterProps} />*/}
-{/*//         </Animated.View>*/}
+         <Animated.View style={helperContainerStyle}>
+           <View style={styles.flex}>
+             <Helper style={[errorStyle, titleTextStyle]}>{error}</Helper>
+             <Helper style={[titleStyle, titleTextStyle]}>{title}</Helper>
+           </View>
+
+           <Counter {...counterProps} />
+         </Animated.View>
       </View>
     );
   }
