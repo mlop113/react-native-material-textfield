@@ -418,7 +418,7 @@ export default class TextField extends PureComponent {
             android: { textAlignVertical: 'top' },
           }),
         }:
-        { height: fontSize * 1.8 }),
+        { height: (fontSize * 2) + 2 }),
     };
 
     let errorStyle = {
